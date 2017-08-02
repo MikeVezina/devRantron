@@ -8,26 +8,19 @@ confinement: strict # use 'strict' once you have the right plugs and slots
 
 apps:
   devrantron:
-    command: electron/electron ./app/build/app.js
-    plugs: [ "network", "x11", "opengl" ]
+    command: ./devrantron
+    plugs: [ "network", "x11", "unity7", "opengl", "browser-support" ]
 
 parts:
   build-devrantron:
     plugin: nil
-    build-packages:
-      - wget
-      - zip
-      - unzip
     build: |
         npm i
         npm i 7zip-bin-linux 
         npm run ci:build
-        npm pack
-        wget https://github.com/electron/electron/releases/download/v1.6.11/electron-v1.6.11-linux-x64.zip
-        unzip *.zip -d electron
-        mv electron ../install/electron
-        tar -xvf *.tgz
-        mv package/* ../install
+        npm run package:dir
+        cd release
+        mv linux-unpacked/* ../../install
     filesets:
        binaries:
         - ./*
