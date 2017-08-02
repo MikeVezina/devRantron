@@ -198,3 +198,10 @@ scripts
 app/build
 
 .DS_Store
+
+parts
+
+*/.snapcraft
+
+prime
+stage

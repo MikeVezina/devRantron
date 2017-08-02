@@ -1,0 +1,31 @@
+name: devrantron # you probably want to 'snapcraft register <name>'
+version: '1.1.0' # just for humans, typically '1.2+git' or '1.3.2'
+summary: An open source cross platform desktop application for devrant.io # 79 char long summary
+description: Built with Electron and ReactJS, this is a application made for the community by the community.
+
+grade: stable # must be 'stable' to release into candidate/stable channels
+confinement: strict # use 'strict' once you have the right plugs and slots
+
+apps:
+  devrantron:
+    command: devrantron
+
+parts:
+  build-devrantron:
+    plugin: nil
+    build: |
+        npm i
+        npm i 7zip-bin-linux 
+        npm run ci:build
+        npm run package
+        cd release
+        mv *.AppImage ../../install/devrantron.AppImage
+    filesets:
+       binaries:
+        - devrantron.AppImage
+    stage:
+      - $binaries
+    prime:
+      - $binaries
+
+
