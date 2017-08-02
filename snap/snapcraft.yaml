@@ -5,16 +5,17 @@ description: Built with Electron and ReactJS, this is a application made for the
 
 grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
+icon: snap/gui/icon.png
 
 apps:
   devrantron:
     command: desktop-launch $SNAP/devrantron/devrantron
-    plugs: [ network, unity7, opengl,browser-support ]
+    plugs: [ network, unity7, opengl, browser-support ]
 
 parts:
   build-devrantron:
     plugin: nil
-    after: [desktop-gtk3]        
+    after: [desktop-glib-only]        
     stage-packages:
       - libnss3
       - fontconfig-config
