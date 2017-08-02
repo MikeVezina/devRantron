@@ -1,0 +1,8 @@
+/*
+/*/
+/app/src
+/app/screenshots
+!/app/build/*
+!LICENSE
+!package.json
+!README.md

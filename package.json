@@ -145,5 +145,31 @@
     "redux-thunk": "^2.2.0",
     "semver-compare": "^1.0.0",
     "twemoji": "^2.2.5"
-  }
+  },
+  "bundledDependencies": [
+    "auto-launch",
+    "autolinker",
+    "babel-polyfill",
+    "deepmerge",
+    "electron-devtools-installer",
+    "electron-updater",
+    "fast-deep-equal",
+    "fuse.js",
+    "jquery",
+    "json-schema-traverse",
+    "node-notifier",
+    "prop-types",
+    "rantscript",
+    "react",
+    "react-dom",
+    "react-redux",
+    "react-router",
+    "react-router-dom",
+    "react-transition-group",
+    "react-twemoji",
+    "redux",
+    "redux-thunk",
+    "semver-compare",
+    "twemoji"
+  ]
 }
